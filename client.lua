@@ -21,13 +21,12 @@ local weapons = {
 	-- rifle
 	'WEAPON_CARBINERIFLE'
 }
-
+-- -- Set this to true and non-police players will be set to unarmed when exiting a vehicle. If you use a custom unholstering animation enable this to prevent players bypassing it
+local disablePedWeaponDraw 	= true 
 ---
 local policeMan = false
 local setWeapon 		 	= ""
 local weaponCount			= 1
-local disablePedWeaponDraw 	= true  --- Set this to true and non-police players will be set to unarmed when exiting a vehicle. If you use a custom unholstering animation enable this to prevent players bypassing it.
-
 
 RegisterNetEvent('copWeap:checkx')
 AddEventHandler('copWeap:checkx', function(bools)
@@ -86,7 +85,6 @@ end
 local number = 0;
 for i in pairs(weapons) do number = number + 1 end
 
-
 RegisterNetEvent('weaponCounter')
 AddEventHandler('weaponCounter', function()
 	local ok = true
@@ -103,9 +101,6 @@ AddEventHandler('weaponCounter', function()
 		end
 	end
 end)
-
-
------------------------------------------------------------------------------------------- PNOTIFY -----------------------------------------------------------------------------------------
 
 RegisterNetEvent('alertWeapon')
 AddEventHandler('alertWeapon', function(weapon_name)
