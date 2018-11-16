@@ -24,7 +24,7 @@ local weapons = {
 -- -- Set this to true and non-police players will be set to unarmed when exiting a vehicle. If you use a custom unholstering animation enable this to prevent players bypassing it
 local disablePedWeaponDraw 	= true 
 ---
-local policeMan = false
+local policeMan = true
 local setWeapon 		 	= ""
 local weaponCount			= 1
 
@@ -37,7 +37,7 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(1)
 		local ped = PlayerPedId()
-		TriggerServerEvent('copWeap:check')
+		--TriggerServerEvent('copWeap:check')
 		if policeMan then
 			if IsPedInAnyVehicle(ped, false) or IsPedInAnyVehicle(ped, false) == 0 then
 				DisableControlAction(0,157,true) -- disable '1' Key
@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1)
 		local ped = PlayerPedId()
 		if IsPedInAnyVehicle(ped, false) or IsPedInAnyVehicle(ped, false) == 0 then
-			TriggerServerEvent('copWeap:check')
+			--TriggerServerEvent('copWeap:check')
 			if policeMan then
 				if IsControlJustReleased(0, 75) then
 					SetCurrentPedWeapon(ped, setWeapon, true)
